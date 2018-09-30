@@ -6,18 +6,18 @@ template.innerHTML = `
             contain: content;
         }
     </style>
-    Legendary
+    <slot name="cardSet"></slot>
 `;
 
-export default class CardSet extends HTMLElement {
+export default class extends HTMLElement {
     constructor() {
         super();
 
-        this.attachShadow({mode: 'open'})
+        this.attachShadow({mode:'open'})
             .appendChild(template.content.cloneNode(true));
     }
 
     connectedCallback() {
-        console.log('CardSet connected to page.');
+        console.log('CardSets connected to page.');
     }
 }
